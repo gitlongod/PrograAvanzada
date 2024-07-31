@@ -20,8 +20,9 @@ namespace Actividad__8_avanzada
             Ingridients = ingridients;
             Process = process;
         }
-        public static void AddRecipe(ref int quantity, ref List<Recetas> recetasList)
+        public static void AddRecipe( ref List<Recetas> recetasList)
         {
+            Console.Clear();
             Console.WriteLine("Ingrese el ID de la receta");
             string idRecipe = Console.ReadLine();   
             Console.WriteLine("Ingrese el nombre de la receta");
@@ -49,7 +50,29 @@ namespace Actividad__8_avanzada
             else
             {
                 Console.WriteLine("La receta aun no existe");
+                Console.ReadKey(); 
+            }
+
+        }
+        public static void ShowRecipes(ref List<Recetas> recetasList)
+        {
+            Console.Clear();
+            Console.WriteLine("Bienvenido a las recetas de doña Juana");
+            foreach (Recetas allRecipes in recetasList)
+            {
+                if (allRecipes != null)
+                {
+                    Console.WriteLine($"\n ID: {allRecipes.ID}| Name: {allRecipes.Name}| Ingredientes: {allRecipes.Ingridients}| proceso:{allRecipes.Process} ");
+                    Console.ReadKey();
+
+                }
+                else
+                {
+                    Console.WriteLine("No hay recetas agreagadas aun favor ingresar recetas");
+                    Console.ReadKey ();
+                }
+            }
             }
         }
     }
-}
+
